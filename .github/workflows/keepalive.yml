@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Open WebUI Space
-        run: curl -sSf https://ksmdaryl-VOTRE-SPACE-OPENWEBUI.hf.space/ -o /dev/null
+        run: curl -sSf https://ksmdaryl-open-webui.hf.space/ -o /dev/null
 
       - name: Ping open-terminal Space
         run: curl -s https://ksmdaryl-open-terminal.hf.space/ -o /dev/null
