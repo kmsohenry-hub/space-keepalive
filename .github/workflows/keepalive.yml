@@ -13,7 +13,7 @@ jobs:
         run: curl -sSf https://ksmdaryl-VOTRE-SPACE-OPENWEBUI.hf.space/ -o /dev/null
 
       - name: Ping open-terminal Space
-        run: curl -sSf https://ksmdaryl-open-terminal.hf.space/ -o /dev/null
+        run: curl -s https://ksmdaryl-open-terminal.hf.space/ -o /dev/null
 
       - name: Ping google-workspace-mcp Space
         run: curl -sSf https://ksmdaryl-google-workspace-mcp.hf.space/ -o /dev/null
