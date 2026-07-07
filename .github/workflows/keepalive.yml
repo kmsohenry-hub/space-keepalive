@@ -8,15 +8,20 @@ on:
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
-      - name: Ping Open WebUI Space
-        run: curl -sSf https://ksmdaryl-open-webui.hf.space/ -o /dev/null
-
-      - name: Ping open-terminal Space
-        run: curl -sSf https://ksmdaryl-open-terminal.hf.space/ -o /dev/null
-
-      - name: Ping google-workspace-mcp Space
-        run: curl -sSf https://ksmdaryl-google-workspace-mcp.hf.space/ -o /dev/null
-
-      - name: Ping HF-docling-serve Space
-        run: curl -sSf https://manchabt-hf-docling-serve.hf.space/ -o /dev/null
+      - name: Ping Hugging Face Spaces
+        shell: bash
+        env:
+          SPACES: |
+            https://ksmdaryl-open-webui.hf.space/
+            https://ksmdaryl-open-terminal.hf.space/
+            https://ksmdaryl-google-workspace-mcp.hf.space/
+            https://manchabt-hf-docling-serve.hf.space/
+        run: |
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            echo "Ping: $url"
+            curl -sS --connect-timeout 10 --max-time 20 -L "$url" -o /dev/null || echo "Warning: failed for $url"
+          done <<< "$SPACES"
