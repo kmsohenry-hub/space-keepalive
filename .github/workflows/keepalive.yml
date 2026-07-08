@@ -15,7 +15,7 @@ jobs:
         shell: bash
         env:
           SPACES: |
-            https://ksmdaryl-open-webui.hf.space/
+            https://ksmdaryl-openwebui.hf.space/
             https://ksmdaryl-open-terminal.hf.space/
             https://ksmdaryl-google-workspace-mcp.hf.space/
             https://manchabt-hf-docling-serve.hf.space/
